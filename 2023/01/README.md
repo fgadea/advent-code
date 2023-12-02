@@ -47,3 +47,5 @@ In this example, the calibration values are `29`, `83`, `13`, `24`, `42`, `14`, 
 What is the sum of all of the calibration values? [value for testing](01-12-2023-advent-of-code.playground/Resources/problem_02.txt)
 
 Solution for this data set: **55093**.
+
+*problem from advent-code page [Day 1 problem](https://adventofcode.com/2023/day/1)*
