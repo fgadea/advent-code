@@ -8,7 +8,7 @@
 ## 02
 
 ### Exercise 02
-Description...
+[exercise](2023/02/README.md)
 
 ## 03
 
