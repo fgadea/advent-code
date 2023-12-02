@@ -58,3 +58,5 @@ The **power** of a set of cubes is equal to the numbers of red, green, and blue 
 For each game, find the minimum set of cubes that must have been present. **What is the sum of the power of these sets?** [value for testing](01-12-2023-advent-of-code.playground/Resources/problem_02.txt)
 
 Solution for this data set: **87984**.
+
+*problem from advent-code page [Day 1 problem](https://adventofcode.com/2023/day/2)*
