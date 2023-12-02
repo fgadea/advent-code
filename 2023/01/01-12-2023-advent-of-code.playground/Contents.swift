@@ -118,5 +118,6 @@ func exerciseTwo() -> Int {
     return sum;
 }
 
+let value = exerciseOne()
 let value = exerciseTwo()
 
