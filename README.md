@@ -1,6 +1,6 @@
 # Advent-code
 
-> There are my solutions for everyday problem of advent-of-code challange [ref] (https://adventofcode.com/2023/about) 
+> This repository has my solutions for everyday problem of advent-of-code challange (https://adventofcode.com/2023/about)
 
 This repository is divided by folders where each folder represent a day problem and has a readme with the problem description, the solution of the problem for the given data set and the ref to the original website problem.
 
