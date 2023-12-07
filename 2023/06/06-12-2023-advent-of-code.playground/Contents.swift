@@ -54,7 +54,7 @@ func secondProblem() -> Int {
     tempTime = index
     while tempIndex > tempTime {
         if tempIndex * (time - tempIndex) > distance {
-            endIndex = tempIndex + 1
+            endIndex = tempIndex
             break
         }
         tempIndex -= 1
@@ -62,7 +62,7 @@ func secondProblem() -> Int {
     
     
     
-    return endIndex - startIndex
+    return endIndex - startIndex + 1
 }
 
 let first = firstProblem()
