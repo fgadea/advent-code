@@ -48,4 +48,5 @@ What is the sum of all of the calibration values? [value for testing](01-12-2023
 
 Solution for this data set: **55093**.
 
-*problem from advent-code page [Day 1 problem](https://adventofcode.com/2023/day/1)*
+> [!NOTE]
+> *problem from advent-code page [Day 1 problem](https://adventofcode.com/2023/day/1)*

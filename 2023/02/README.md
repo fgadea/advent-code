@@ -59,4 +59,5 @@ For each game, find the minimum set of cubes that must have been present. **What
 
 Solution for this data set: **87984**.
 
-*problem from advent-code page [Day 2 problem](https://adventofcode.com/2023/day/2)*
+> [!NOTE]
+> *problem from advent-code page [Day 2 problem](https://adventofcode.com/2023/day/2)*

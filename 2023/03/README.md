@@ -65,4 +65,5 @@ In this schematic, there are **two** gears. The first is in the top left; it has
 
 Solution for this data set: **78236071**.
 
-*problem from advent-code page [Day 3 problem](https://adventofcode.com/2023/day/3)*
+> [!NOTE]
+> *problem from advent-code page [Day 3 problem](https://adventofcode.com/2023/day/3)*

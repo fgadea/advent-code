@@ -74,4 +74,5 @@ Process all of the original and copied scratchcards until no more scratchcards a
 
 Solution for this data set: **5920640**.
 
-*problem from advent-code page [Day 4 problem](https://adventofcode.com/2023/day/4)*
+> [!NOTE]
+> *problem from advent-code page [Day 4 problem](https://adventofcode.com/2023/day/4)*

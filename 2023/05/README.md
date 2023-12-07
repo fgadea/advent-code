@@ -125,4 +125,5 @@ Consider all of the initial seed numbers listed in the ranges on the first line 
 
 Solution for this data set: **41222968**.
 
-*problem from advent-code page [Day 5 problem](https://adventofcode.com/2023/day/5)*
+> [!NOTE]
+> *problem from advent-code page [Day 5 problem](https://adventofcode.com/2023/day/5)*
