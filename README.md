@@ -36,12 +36,11 @@ This repository is divided by folders where each folder represent a day problem 
 ## 06
 
 ### Exercise 06
-Description...
-
+[exercise](2023/06/README.md)
 ## 07
 
 ### Exercise 07
-Description...
+[exercise](2023/07/README.md)
 
 ## 08
 
