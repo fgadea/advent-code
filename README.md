@@ -45,7 +45,7 @@ This repository is divided by folders where each folder represent a day problem 
 ## 08
 
 ### Exercise 08
-Description...
+[exercise](2023/08/README.md)
 
 ## 09
 
