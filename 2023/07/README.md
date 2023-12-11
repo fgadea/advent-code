@@ -55,7 +55,7 @@ So, the first step is to put the hands in order of strength:
 
 Now, you can determine the total winnings of this set of hands by adding up the result of multiplying each hand's bid with its rank (`765` * `1` + `220` * `2` + `28` * `3` + `684` * `4` + `483` * `5`). So the **total winnings** in this example are **`6440`**.
 
-Find the rank of every hand in your set. **What are the total winnings?** [value for testing](05-12-2023-advent-of-code.playground/Resources/problem_01.txt)
+Find the rank of every hand in your set. **What are the total winnings?** [value for testing](07-12-2023-advent-of-code.playground/Resources/problem_01.txt)
 
 Solution for this data set: **253205868**.
 
@@ -82,7 +82,7 @@ KK677 is now the only **two pair**, making it the second-weakest hand.
 
 With the new joker rule, the total winnings in this example are **`5905`**.
 
-Using the new joker rule, find the rank of every hand in your set. **What are the new total winnings?** [value for testing](05-12-2023-advent-of-code.playground/Resources/problem_01.txt)
+Using the new joker rule, find the rank of every hand in your set. **What are the new total winnings?** [value for testing](07-12-2023-advent-of-code.playground/Resources/problem_01.txt)
 
 Solution for this data set: **253907829**.
 

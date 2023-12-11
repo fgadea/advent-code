@@ -44,7 +44,7 @@ In the third race, you could hold the button for at least `11` milliseconds and 
 
 To see how much margin of error you have, determine the **number of ways you can beat the record** in each race; in this example, if you multiply these values together, you get **288** (`4` * `8` * `9`).
 
-Determine the number of ways you could beat the record in each race. **What do you get if you multiply these numbers together?** [value for testing](05-12-2023-advent-of-code.playground/Resources/problem_01.txt)
+Determine the number of ways you could beat the record in each race. **What do you get if you multiply these numbers together?** [value for testing](06-12-2023-advent-of-code.playground/Resources/problem_01.txt)
 
 Solution for this data set: **3316275**.
 
@@ -67,7 +67,7 @@ Distance:  940200
 
 Now, you have to figure out how many ways there are to win this single race. In this example, the race lasts for **`71530` milliseconds** and the record distance you need to beat is **`940200` millimeters**. You could hold the button anywhere from `14` to `71516` milliseconds and beat the record, a total of **`71503`** ways!
 
-**How many ways can you beat the record in this one much longer race?** [value for testing](05-12-2023-advent-of-code.playground/Resources/problem_01.txt)
+**How many ways can you beat the record in this one much longer race?** [value for testing](06-12-2023-advent-of-code.playground/Resources/problem_01.txt)
 
 Solution for this data set: **27102791**.
 
