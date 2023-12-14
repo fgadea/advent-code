@@ -243,7 +243,7 @@ func problem2() -> Int {
             break
         }
     }
-    if animalIndex + 1 < map[animalRow].count, row < 0, column < 0 {
+    if previous == "S", animalIndex + 1 < map[animalRow].count {
         let rightElement = map[animalRow][animalIndex+1]
         switch rightElement {
         case "J", "-", "7":
@@ -256,7 +256,7 @@ func problem2() -> Int {
         }
         
     }
-    if animalRow - 1 >= 0, row < 0, column < 0 {
+    if previous == "S", animalRow - 1 >= 0 {
         let topElement = map[animalRow-1][animalIndex]
         switch topElement {
         case "|", "F", "7":
@@ -268,7 +268,7 @@ func problem2() -> Int {
             break
         }
     }
-    if animalRow + 1 < map.count, row < 0, column < 0 {
+    if previous == "S", animalRow + 1 < map.count {
         let bottomElement = map[animalRow+1][animalIndex]
         switch bottomElement {
         case "|", "J", "L":
@@ -284,13 +284,12 @@ func problem2() -> Int {
     var count  = 1
     var founded = false
     while !founded {
-        count += 1
         switch previous {
         case "L":
             if column + 1 < distanceMap[row].count, distanceMap[row][column + 1] == -1 {
                 switch map[row][column + 1] {
                 case "7", "-", "J":
-                    distanceMap[row][column + 1] = count
+                    distanceMap[row][column + 1] = 0
                     previous = map[row][column + 1]
                     column = column + 1
                 default:
@@ -299,7 +298,7 @@ func problem2() -> Int {
             } else if row - 1 >= 0, distanceMap[row - 1][column] == -1 {
                 switch map[row - 1][column] {
                 case "7", "|", "F":
-                    distanceMap[row - 1][column] = count
+                    distanceMap[row - 1][column] = 0
                     previous = map[row - 1][column]
                     row = row - 1
                 default:
@@ -312,7 +311,7 @@ func problem2() -> Int {
             if column + 1 < distanceMap[row].count, distanceMap[row][column + 1] == -1 {
                 switch map[row][column + 1] {
                 case "7", "-", "J":
-                    distanceMap[row][column + 1] = count
+                    distanceMap[row][column + 1] = 0
                     previous = map[row][column + 1]
                     column = column + 1
                 default:
@@ -321,7 +320,7 @@ func problem2() -> Int {
             } else if row + 1 < distanceMap.count, distanceMap[row + 1][column] == -1 {
                 switch map[row + 1][column] {
                 case "J", "|", "L":
-                    distanceMap[row + 1][column] = count
+                    distanceMap[row + 1][column] = 0
                     previous = map[row + 1][column]
                     row = row + 1
                 default:
@@ -334,7 +333,7 @@ func problem2() -> Int {
             if column - 1 >= 0, distanceMap[row][column - 1] == -1 {
                 switch map[row][column - 1] {
                 case "L", "-", "F":
-                    distanceMap[row][column - 1] = count
+                    distanceMap[row][column - 1] = 0
                     previous = map[row][column - 1]
                     column = column - 1
                 default:
@@ -343,7 +342,7 @@ func problem2() -> Int {
             } else if row + 1 < distanceMap.count, distanceMap[row + 1][column] == -1 {
                 switch map[row + 1][column] {
                 case "J", "|", "L":
-                    distanceMap[row + 1][column] = count
+                    distanceMap[row + 1][column] = 0
                     previous = map[row + 1][column]
                     row = row + 1
                 default:
@@ -356,7 +355,7 @@ func problem2() -> Int {
             if column - 1 >= 0, distanceMap[row][column - 1] == -1 {
                 switch map[row][column - 1] {
                 case "L", "-", "F":
-                    distanceMap[row][column - 1] = count
+                    distanceMap[row][column - 1] = 0
                     previous = map[row][column - 1]
                     column = column - 1
                 default:
@@ -365,7 +364,7 @@ func problem2() -> Int {
             } else if row - 1 >= 0, distanceMap[row - 1][column] == -1 {
                 switch map[row - 1][column] {
                 case "F", "|", "7":
-                    distanceMap[row - 1][column] = count
+                    distanceMap[row - 1][column] = 0
                     previous = map[row - 1][column]
                     row = row - 1
                 default:
@@ -378,7 +377,7 @@ func problem2() -> Int {
             if row + 1 < distanceMap.count, distanceMap[row + 1][column] == -1 {
                 switch map[row + 1][column] {
                 case "J", "|", "L":
-                    distanceMap[row + 1][column] = count
+                    distanceMap[row + 1][column] = 0
                     previous = map[row + 1][column]
                     row = row + 1
                 default:
@@ -387,7 +386,7 @@ func problem2() -> Int {
             } else if row - 1 >= 0, distanceMap[row - 1][column] == -1 {
                 switch map[row - 1][column] {
                 case "F", "|", "7":
-                    distanceMap[row - 1][column] = count
+                    distanceMap[row - 1][column] = 0
                     previous = map[row - 1][column]
                     row = row - 1
                 default:
@@ -400,7 +399,7 @@ func problem2() -> Int {
             if column - 1 >= 0, distanceMap[row][column - 1] == -1 {
                 switch map[row][column - 1] {
                 case "L", "-", "F":
-                    distanceMap[row][column - 1] = count
+                    distanceMap[row][column - 1] = 0
                     previous = map[row][column - 1]
                     column = column - 1
                 default:
@@ -409,7 +408,7 @@ func problem2() -> Int {
             } else if column + 1 < distanceMap[row].count, distanceMap[row][column + 1] == -1 {
                 switch map[row][column + 1] {
                 case "7", "-", "J":
-                    distanceMap[row][column + 1] = count
+                    distanceMap[row][column + 1] = 0
                     previous = map[row][column + 1]
                     column = column + 1
                 default:
@@ -424,341 +423,291 @@ func problem2() -> Int {
         
     }
     
-    var newRow = animalRow
-    var newColumn = animalIndex
     
-    founded = false
+    
+//    for i in 0..<distanceMap.count {
+//        var newRow: [[Int]] = []
+//        for j in 0..<distanceMap[i].count {
+//            if j - 1 >= 0 {
+//                queue.append((node.x, node.y - 1))
+//            }
+//            if j + 1 < distanceMap[node.x].count {
+//                queue.append((node.x, node.y + 1))
+//            }
+//            if i - 1 >= 0 {
+//                queue.append((node.x - 1, node.y))
+//            }
+//            if i + 1 < distanceMap.count {
+//                queue.append((node.x + 1, node.y))
+//            }
+//            newRow.append([-1, distanceMap[i][j], -1])
+//        }
+//        distanceMap[i] = newRow.flatMap({$0})
+//    }
+    
+//    Flood-fill (node):
+//      1. Set Q to the empty queue or stack.
+//      2. Add node to the end of Q.
+//      3. While Q is not empty:
+//      4.   Set n equal to the first element of Q.
+//      5.   Remove first element from Q.
+//      6.   If n is Inside:
+//             Set the n
+//             Add the node to the west of n to the end of Q.
+//             Add the node to the east of n to the end of Q.
+//             Add the node to the north of n to the end of Q.
+//             Add the node to the south of n to the end of Q.
+//      7. Continue looping until Q is exhausted.
+//      8. Return.
+    
+    
+    var grounds:[(x: Int, y: Int)] = []
+    
+    for i in 0..<map.count {
+        for j in 0..<map[i].count {
+            if map[i][j] == "." {
+                grounds.append((i,j))
+            }
+        }
+    }
+    
+    var enclosedGrounds:[(x: Int, y: Int)] = []
+    for ground in grounds {
+        var x = ground.x
+        var y = ground.y
+        var t = false
+        var tl = false
+        var tr = false
+        var l = false
+        var r = false
+        var b = false
+        var bl = false
+        var br = false
+        for right in y+1..<distanceMap.count {
+            if distanceMap[x][right] == 0 {
+                r = true
+            }
+        }
+        if !r {
+            continue
+        }
+        
+        for left in stride(from: y-1, to: 0, by: -1) {
+            if distanceMap[x][left] == 0 {
+                l = true
+            }
+        }
+        
+        if !l {
+            continue
+        }
+        
+        for top in stride(from: x-1, to: 0, by: -1) {
+            if distanceMap[top][y] == 0 {
+                t = true
+            }
+        }
+        if !t {
+            continue
+        }
+        for bottom in x+1..<distanceMap.count {
+            if distanceMap[bottom][y] == 0 {
+                b = true
+            }
+        }
+        if !b {
+            continue
+        }
+        var ceros = 0
+        var lastCero = (0,0)
+        for bottom in x+1..<distanceMap.count {
+            for right in y+1..<distanceMap.count {
+                if distanceMap[bottom][right] == 0 {
+                    ceros += 1
+                    lastCero = (bottom, right)
+                    if lastCero.1 == y+1, ceros == distanceMap.count - (x+2) {
+                        br = true
+                    }
+                    continue
+                }
+            }
+        }
+        
+        if !br {
+            continue
+        }
+        
+        ceros = 0
+        lastCero = (0,0)
+        
+        for bottom in x+1..<distanceMap.count {
+            for left in stride(from: y-1, to: 0, by: -1) {
+                if distanceMap[bottom][left] == 0 {
+                    ceros += 1
+                    lastCero = (bottom, left)
+                    
+                    if lastCero.1 == y-1, ceros == distanceMap.count - (y-2) {
+                        bl = true
+                    }
+                    continue
+                }
+            }
+        }
+        
+        if !bl {
+            continue
+        }
+        
+        ceros = 0
+        lastCero = (0,0)
+        
+        for top in stride(from: x-1, to: 0, by: -1) {
+            for left in stride(from: y-1, to: 0, by: -1) {
+                if distanceMap[top][left] == 0 {
+                    ceros += 1
+                    lastCero = (top, left)
+                    
+                    if lastCero.1 == y-1, ceros == x - 2 {
+                        tl = true
+                    }
+                    continue
+                }
+            }
+        }
+        
+        if !tl {
+            continue
+        }
+        
+        ceros = 0
+        lastCero = (0,0)
+        
+        for top in stride(from: x-1, to: 0, by: -1) {
+            for right in y+1..<distanceMap.count {
+                if distanceMap[top][right] == 0 {
+                    ceros += 1
+                    lastCero = (top, right)
+                    
+                    if lastCero.1 == y+1, ceros == x - 2 {
+                        tr = true
+                    }
+                    continue
+                }
+            }
+        }
+        
+        if !tr {
+            continue
+        }
+        
+        if r, l, t, b, br, bl, tl, tr {
+            enclosedGrounds.append(ground)
+        }
+    }
+    
     count = 0
-//    -1,-1  -1, 0  -1, 1
-//     0,-1   0, 0   0, 1
-//     1,-1   1, 0   1, 1
-    while !founded {
-        if count > 0 && distanceMap[newRow][newColumn] == 0 {
-            founded = true
-            break
-        }
-        
-        var topLeft = 0
-        var midLeft = 0
-        var bottomLeft = 0
-        if newColumn - 1 >= 0 {
-            if newRow - 1 >= 0 {
-                topLeft = distanceMap[newRow-1][newColumn-1]
-            }
-            midLeft = distanceMap[newRow][newColumn-1]
-            if newRow + 1 < distanceMap.count {
-                bottomLeft = distanceMap[newRow+1][newColumn-1]
-            }
-        }
-        
-        var topRight = 0
-        var midRight = 0
-        var bottomRight = 0
-        if newColumn + 1 < distanceMap[newRow].count {
-            if newRow - 1 >= 0 {
-                topRight = distanceMap[newRow-1][newColumn+1]
-            }
-            midRight = distanceMap[newRow][newColumn+1]
-            if newRow + 1 < distanceMap.count {
-                bottomRight = distanceMap[newRow+1][newColumn+1]
-            }
-        }
-        
-        var topCenter = 0
-        var midCenter = 0
-        var bottomCenter = 0
-        if newRow - 1 >= 0 {
-            topCenter = distanceMap[newRow-1][newColumn]
-        }
-        if newRow + 1 < distanceMap.count {
-            bottomCenter = distanceMap[newRow+1][newColumn]
-        }
-        
-        if topCenter > 0, topCenter == midCenter + 1 {
-            if midRight > 0, midRight == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -2
+    for enclosedGround in enclosedGrounds {
+        var queue:[(x: Int, y: Int)] = [enclosedGround]
+    //    queue.append((0, 0))
+        print(count)
+        while !queue.isEmpty {
+            var node = queue.removeFirst()
+            if distanceMap[node.x][node.y] <= -1 {
+                distanceMap[node.x][node.y] = 1
+                count += 1
+                if node.y - 1 >= 0 {
+                    queue.append((node.x, node.y - 1))
                 }
-                if topLeft == -1 {
-                    topLeft = -3
+                if node.y + 1 < distanceMap[node.x].count {
+                    queue.append((node.x, node.y + 1))
                 }
-                if midLeft == -1 {
-                    midLeft = -3
+                if node.x - 1 >= 0 {
+                    queue.append((node.x - 1, node.y))
                 }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if bottomCenter == -1 {
-                    bottomCenter = -3
-                }
-            } else if midLeft > 0, midLeft == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -2
-                }
-                if topLeft == -1 {
-                    topLeft = -3
-                }
-                if midRight == -1 {
-                    midRight = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if bottomCenter == -1 {
-                    bottomCenter = -3
-                }
-                
-            } else if bottomCenter > 0, bottomCenter == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -3
-                }
-                if topLeft == -1 {
-                    topLeft = -2
-                }
-                if midRight == -1 {
-                    midRight = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -2
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if midLeft == -1 {
-                    midLeft = -2
-                }
-            }
-        } else if midRight > 0, midRight == midCenter + 1 {
-            if topCenter > 0, topCenter == midCenter - 1 {
-                    if topRight == -1 {
-                        topRight = -2
-                    }
-                    if topLeft == -1 {
-                        topLeft = -3
-                    }
-                    if midLeft == -1 {
-                        midLeft = -3
-                    }
-                    if bottomLeft == -1 {
-                        bottomLeft = -3
-                    }
-                    if bottomRight == -1 {
-                        bottomRight = -3
-                    }
-                    if bottomCenter == -1 {
-                        bottomCenter = -3
-                    }
-            } else if midLeft > 0, midLeft == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -2
-                }
-                if topLeft == -1 {
-                    topLeft = -2
-                }
-                if topCenter == -1 {
-                    topCenter = -2
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if bottomCenter == -1 {
-                    bottomCenter = -3
-                }
-                
-            } else if bottomCenter > 0, bottomCenter == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -3
-                }
-                if topLeft == -1 {
-                    topLeft = -3
-                }
-                if topCenter == -1 {
-                    topCenter = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -2
-                }
-                if midLeft == -1 {
-                    midLeft = -3
-                }
-                
-            }
-        } else if midLeft > 0, midLeft == midCenter + 1 {
-            if topCenter > 0, topCenter == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -3
-                }
-                if topLeft == -1 {
-                    topLeft = -2
-                }
-                if midRight == -1 {
-                    midRight = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if bottomCenter == -1 {
-                    bottomCenter = -3
-                }
-            } else if midRight > 0, midRight == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -2
-                }
-                if topLeft == -1 {
-                    topLeft = -2
-                }
-                if topCenter == -1 {
-                    topCenter = -2
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if bottomCenter == -1 {
-                    bottomCenter = -3
-                }
-            } else if bottomCenter > 0, bottomCenter == midCenter - 1 {
-                    if topRight == -1 {
-                        topRight = -3
-                    }
-                    if topLeft == -1 {
-                        topLeft = -3
-                    }
-                    if topCenter == -1 {
-                        topCenter = -3
-                    }
-                    if bottomLeft == -1 {
-                        bottomLeft = -3
-                    }
-                    if bottomRight == -1 {
-                        bottomRight = -2
-                    }
-                    if midRight == -1 {
-                        midRight = -3
-                    }
-            }
-        } else if bottomCenter > 0, bottomCenter == midCenter + 1 {
-            if topCenter > 0, topCenter == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -3
-                }
-                if topLeft == -1 {
-                    topLeft = -2
-                }
-                if midRight == -1 {
-                    midRight = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -2
-                }
-                if bottomRight == -1 {
-                    bottomRight = -3
-                }
-                if midLeft == -1 {
-                    midLeft = -2
-                }
-            } else if midRight > 0, midRight == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -3
-                }
-                if topLeft == -1 {
-                    topLeft = -3
-                }
-                if topCenter == -1 {
-                    topCenter = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -2
-                }
-                if midLeft == -1 {
-                    midLeft = -3
-                }
-            } else if midLeft > 0, midLeft == midCenter - 1 {
-                if topRight == -1 {
-                    topRight = -3
-                }
-                if topLeft == -1 {
-                    topLeft = -3
-                }
-                if topCenter == -1 {
-                    topCenter = -3
-                }
-                if bottomLeft == -1 {
-                    bottomLeft = -3
-                }
-                if bottomRight == -1 {
-                    bottomRight = -2
-                }
-                if midRight == -1 {
-                    midRight = -3
+                if node.x + 1 < distanceMap.count {
+                    queue.append((node.x + 1, node.y))
                 }
             }
         }
-        
-        if newColumn - 1 >= 0 {
-            if newRow - 1 >= 0, topLeft < 0 {
-                distanceMap[newRow-1][newColumn-1] = topLeft
-            }
-            if midLeft < 0 {
-                distanceMap[newRow][newColumn-1] = midLeft
-            }
-            if newRow + 1 < distanceMap.count, bottomLeft < 0 {
-                distanceMap[newRow+1][newColumn-1] = bottomLeft
-            }
-        }
-        
-        if newColumn + 1 < distanceMap[newRow].count {
-            if newRow - 1 >= 0, topRight < 0 {
-                distanceMap[newRow-1][newColumn+1] = topRight
-            }
-            if midRight < 0 {
-                midRight = distanceMap[newRow][newColumn+1]
-            }
-            if newRow + 1 < distanceMap.count, bottomRight < 0 {
-                distanceMap[newRow+1][newColumn+1] = bottomRight
-            }
-        }
-        
-        if newRow - 1 >= 0, topCenter < 0 {
-            distanceMap[newRow-1][newColumn] = topCenter
-        }
-        if newRow + 1 < distanceMap.count, bottomCenter < 0 {
-            distanceMap[newRow+1][newColumn] = bottomCenter
-        }
-        
-        count += 1
     }
     
-    print(map)
-    
-    let lines = distanceMap.filter({$0.contains(-2)})
-    var count2 = 0
-    for line in lines {
-        count2 += line.filter({$0 == -2}).count
-    }
-    
-    print(count2)
     return count
+    
+    
+//    var interiorPoints = 0
+//        var exteriorPoints = 0
+//    
+//    
+//    let rows = distanceMap.count
+//    let cols = distanceMap[0].count
+//        
+//        // Loop through each cell in the matrix
+//        for i in 0..<rows {
+//            for j in 0..<cols {
+//                // Check if the current cell is part of the polygon
+//                if distanceMap[i][j] == 0 {
+//                    // Count interior points
+//                    interiorPoints += 1
+//                    
+//                    // Check if the cell to the right is also part of the polygon
+//                    if j + 1 < cols && distanceMap[i][j + 1] == 0 {
+//                        interiorPoints -= 1
+//                    }
+//                    
+//                    // Check if the cell below is also part of the polygon
+//                    if i + 1 < rows && distanceMap[i + 1][j] == 0 {
+//                        interiorPoints -= 1
+//                    }
+//                } else if distanceMap[i][j] == -1 {
+//                    // Count exterior points
+//                    exteriorPoints += 1
+//                }
+//            }
+//        }
+//    print(exteriorPoints)
+//    return rows * cols + interiorPoints
+}
+
+func countEnclosedTiles() -> Int {
+    var matrix = ReadFile().read(file: "problem_01").compactMap({Array($0)})
+    let rows = matrix.count
+    let cols = matrix[0].count
+    
+    // Helper function to mark enclosed tiles using depth-first search
+    func markEnclosed(x: Int, y: Int) {
+        if x < 0 || x >= rows || y < 0 || y >= cols || matrix[x][y] != "." {
+            return
+        }
+        
+        matrix[x][y] = "I" // Mark tile as inside the loop
+        
+        // Recursively explore adjacent tiles
+        markEnclosed(x: x + 1, y: y)
+        markEnclosed(x: x - 1, y: y)
+        markEnclosed(x: x, y: y + 1)
+        markEnclosed(x: x, y: y - 1)
+    }
+    
+    // Iterate through the matrix and find the starting point for the loop
+    for i in 0..<rows {
+        for j in 0..<cols {
+            if matrix[i][j] == "." {
+                markEnclosed(x: i, y: j)
+            }
+        }
+    }
+    
+    // Count the marked tiles
+    var enclosedCount = 0
+    for i in 0..<rows {
+        for j in 0..<cols {
+            if matrix[i][j] == "I" {
+                enclosedCount += 1
+            }
+        }
+    }
+    
+    return enclosedCount
 }
 
 //let first = problem1() / 2
