@@ -50,12 +50,12 @@ This repository is divided by folders where each folder represent a day problem 
 ## 09
 
 ### Exercise 09
-Description...
+[exercise](2023/09/README.md)
 
 ## 10
 
 ### Exercise 10
-Description...
+[exercise](2023/10/README.md)
 
 ## 11
 
