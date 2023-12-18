@@ -32,41 +32,31 @@ func expand(_ universe:[[Character]]) -> [[Character]] {
     return expandedUniverse
 }
 
-func expand2(_ universe:[[Bool]]) -> [[Bool]] {
-    var expandedUniverse:[[Bool]] = []
-    for row in universe {
-        if row.contains(true) {
-            expandedUniverse.append(row)
-            continue
-        }
-        
-        for _ in 0..<1000000 {
-            expandedUniverse.append(row)
+func getExpands(_ universe:[[Bool]]) -> (columns: [Int],rows: [Int]) {
+    var columns:[Int] = []
+    var rows: [Int] = []
+    for (index, row) in universe.enumerated() {
+        if !row.contains(true) {
+            rows.append(index)
         }
     }
     
     var col: Int = 0
-    while col < expandedUniverse[0].count {
+    while col < universe[0].count {
         var containsGalaxies = false
-        for row in 0..<expandedUniverse.count {
-            if expandedUniverse[row][col] == true {
+        for row in 0..<universe.count {
+            if universe[row][col] == true {
                 containsGalaxies = true
                 break
             }
         }
         if !containsGalaxies {
-            for _ in 0..<999999 {
-                for row in 0..<expandedUniverse.count {
-                    expandedUniverse[row].insert(false, at: col)
-                }
-            }
-            
-            col+=999999
+            columns.append(col)
         }
         col += 1
     }
     
-    return expandedUniverse
+    return (columns, rows)
 }
 
 //MARK: Problem 1
@@ -108,7 +98,7 @@ func problem1() -> Int {
 func problem2() -> Int {
     var universe = ReadFile().read(file: "problem_01").compactMap({Array($0.compactMap({$0 == "." ? false : true }))})
     let galaxiesCount = universe.compactMap({$0.compactMap({val in val == true ? val : nil}).count}).reduce(0, +)
-    universe = expand2(universe)
+    let colsAndRows = getExpands(universe)
     var galaxiesPoints:[Int:(x: Int, y: Int)] = [:]
     for galaxy in 1...galaxiesCount {
         guard let index = universe.firstIndex(where: {$0.contains(true)}) else {
@@ -131,13 +121,49 @@ func problem2() -> Int {
                 return 0
             }
             
-            steps += abs(destinationPoint.x - originPoint.x)
-            steps += abs(destinationPoint.y - originPoint.y)
+            let destX = destinationPoint.x - originPoint.x
+            if destX > 0 {
+                for row in originPoint.x+1...destinationPoint.x {
+                    if colsAndRows.rows.contains(row) {
+                        steps += 999999
+                    }
+                    steps += 1
+                }
+            } else if destX < 0 {
+                for row in stride(from: originPoint.x, to: destinationPoint.x, by: -1) {
+                    if colsAndRows.rows.contains(row) {
+                        steps += 999999
+                    }
+                    steps += 1
+                }
+            } else {
+                steps += abs(destinationPoint.x - originPoint.x)
+            }
+            
+            let destY = destinationPoint.y - originPoint.y
+            if destY > 0 {
+                for col in originPoint.y+1...destinationPoint.y {
+                    if colsAndRows.columns.contains(col) {
+                        steps += 999999
+                    }
+                    steps += 1
+                }
+            } else if destY < 0 {
+                for col in stride(from: originPoint.y, to: destinationPoint.y, by: -1) {
+                    if colsAndRows.columns.contains(col) {
+                        steps += 999999
+                    }
+                    steps += 1
+                }
+            } else {
+                steps += abs(destinationPoint.y - originPoint.y)
+            }
+            
         }
     }
     return steps
 }
 
-let first = problem1()
+//let first = problem1()
 //print(first)
-//let second = problem2()
+let second = problem2()
